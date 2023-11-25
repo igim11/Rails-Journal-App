@@ -4,7 +4,7 @@ class CategoryTest < ActiveSupport::TestCase
   
   test "should not save category without title" do
     category = Category.new
-    category.details = 'details'
+    category.details = 'Work'
     assert_not category.save, 'saved the category without a title'
   end
 
