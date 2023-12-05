@@ -1,0 +1,10 @@
+<h1>New task</h1>
+
+<%= render partial: 'tasks/form', locals: { task: @task, category: @category } %>
+
+
+<br>
+
+<div>
+  <%= link_to "Back to categories", categories_path %>
+</div>

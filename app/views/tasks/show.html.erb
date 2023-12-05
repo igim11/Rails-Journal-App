@@ -1,0 +1,11 @@
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.description %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"><%= @task.due_date %></h6>
+    <%= link_to "Edit this task", edit_category_task_path(@category, @task) %>
+    <%= link_to "Back to categories", categories_path %>
+    <br>
+    <br>
+    <%= button_to "Delete this task", category_task_path(@category, @task), method: :delete %>
+  </div>
+</div>

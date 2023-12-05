@@ -1,12 +1,19 @@
+<% accordion_target ||= "panelsStayOpen-collapse#{category_number_to_text(dom_id(category))}" %>
+
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Title:</strong>
-    <%= category.title %>
-  </p>
-
-  <p>
-    <strong>Details:</strong>
-    <%= category.details %>
-  </p>
-
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="<%= raw "##{accordion_target}" %>" aria-expanded="true" aria-controls="<%= raw accordion_target %>">
+        <%= category.title %>
+      </button>
+    </h2>
+    <div id="<%= accordion_target %>" class="accordion-collapse collapse show">
+      <div class="accordion-body" style="background-color: #f0f0f0;">
+        <%= link_to "Add New Task", new_category_task_path(category) %>
+      </div>
+      <% category.tasks.order("due_date ASC").each do |task| %>
+        <%= render "tasks/task", task: task, category: category %>
+      <% end %>
+    </div>
+  </div>
 </div>

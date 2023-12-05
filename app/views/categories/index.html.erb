@@ -1,6 +1,9 @@
 <h1>Categories</h1>
 
-<div id="categories">
+<%= link_to "New category", new_category_path %>
+<br>
+<br>
+<div class="accordion" id="accordionPanelsStayOpenExample">
   <% @categories.each do |category| %>
     <%= render category %>
     <p>
@@ -8,5 +11,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>

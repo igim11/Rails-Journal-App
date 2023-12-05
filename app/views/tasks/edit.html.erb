@@ -1,0 +1,10 @@
+<h1>Editing task</h1>
+
+<%= render partial: 'tasks/form', locals: { task: @task, category: @category } %>
+
+<br>
+
+<div>
+  <%= link_to "Show this task", category_task_path(@category, @task) %> |
+  <%= link_to "Back to categories", categories_path %>
+</div>
