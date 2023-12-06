@@ -4,12 +4,22 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="<%= raw "##{accordion_target}" %>" aria-expanded="true" aria-controls="<%= raw accordion_target %>">
-        <%= category.title %>
+        <h4><%= category.title %></h4>
       </button>
     </h2>
     <div id="<%= accordion_target %>" class="accordion-collapse collapse show">
-      <div class="accordion-body" style="background-color: #f0f0f0;">
-        <%= link_to "Add New Task", new_category_task_path(category) %>
+      <div class="d-flex justify-content-between align-items-center" style="background-color: #f0f0f0;">
+        <div>
+          <%= link_to new_category_task_path(category), class:"btn btn-primary add-task" do %>
+            <i class="bi bi-plus-lg"></i>
+            New Task
+          <% end %>
+        </div>
+        <div>
+          <%= link_to category, class:"btn btn-light show-category" do %>
+            <i class="bi bi-three-dots"></i>
+          <% end %>
+        </div>
       </div>
       <% category.tasks.order("due_date ASC").each do |task| %>
         <%= render "tasks/task", task: task, category: category %>

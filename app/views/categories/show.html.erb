@@ -1,11 +1,14 @@
 <div class="card" style="width: 25rem;">
   <div class="card-body">
-    <h5 class="card-title"><%= @category.title %></h5>
-    <p class="card-text"><%= @category.details.html_safe %></p>
-    <%= link_to "Edit this category", edit_category_path(@category) %>
-    <%= link_to "Back to categories", categories_path %>
+    <h4 class="card-title"><%= @category.title %></h4>
+    <hr />
+    <h6 class="card-text"><%= @category.details.html_safe %></h6>
+    <br />
+    <br />
+    <%= link_to "Edit this category", edit_category_path(@category), class:"btn btn-dark" %>
+    <%= link_to "Back to categories", categories_path, class:"btn btn-secondary" %>
     <br>
     <br>
-    <%= button_to "Delete this category", @category, method: :delete %>
+    <%= button_to "Delete this category", @category, method: :delete, class:"btn btn-danger" %>
   </div>
 </div>

@@ -1,11 +1,16 @@
 <div class="accordion-body">
   <div class="d-flex justify-content-between align-items-center">
     <div>
-      <%= task.due_date %>
-      <%= link_to task.description, category_task_path(category, task) %>
+      <% if task.due_date.today? || task.due_date.past? %>
+        <i class="bi bi-exclamation-circle due-today" title="This task is due today"></i>
+      <% end %>
+      <%= link_to task.description, category_task_path(category, task), class:"task-link" %> due on 
+      <%= task.due_date.strftime('%b %d, %Y') %>
     </div>
     <div>
-      <%= button_to "Complete", category_task_path(category, task), method: :delete, class: "btn btn-primary" %>
+      <%= button_to category_task_path(category, task), method: :delete, class: "btn btn-primary complete" do%>
+        <i class="bi bi-check-lg"></i>
+      <% end %>
     </div>
   </div>
 </div>
