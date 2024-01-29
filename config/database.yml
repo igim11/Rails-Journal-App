@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   database: rails-journal-app_production
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: 5432
